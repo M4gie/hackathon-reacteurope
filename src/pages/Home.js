@@ -6,9 +6,9 @@ import Link from "../components/Link";
 export default function Home() {
   return (
     <Container>
-      <Button primary>
-        <Link to="/setup">Create a game</Link>
-      </Button>
+      <Link to="/setup">
+        <Button primary>Create a game</Button>
+      </Link>
     </Container>
   );
 }
