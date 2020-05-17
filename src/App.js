@@ -1,9 +1,14 @@
 import React from "react";
-import AppRouter from "./router";
 import "@progress/kendo-theme-default/dist/all.css";
+import { RecoilRoot } from "recoil";
+import AppRouter from "./router";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <RecoilRoot>
+      <AppRouter />
+    </RecoilRoot>
+  );
 }
 
 export default App;
