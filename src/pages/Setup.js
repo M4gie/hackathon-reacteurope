@@ -7,11 +7,14 @@ import SelectTime from "../components/SelectTime";
 import SelectLetter from "../components/SelectLetter";
 import { Button } from "@progress/kendo-react-buttons";
 import Link from "../components/Link";
+import { useHistory } from "react-router-dom";
 
 export default function Setup() {
+  let history = useHistory();
+
   function handleSubmit(event) {
-    console.log("Send form !");
     event.preventDefault();
+    history.push("/game");
   }
 
   return (
@@ -30,7 +33,7 @@ export default function Setup() {
             <SelectLetter key={letter} letter={letter} />
           ))}
         </div>
-        <Button type="submit" className="k-button" primary>
+        <Button type="submit" primary>
           PLAY !
         </Button>
         <Link to="/">
