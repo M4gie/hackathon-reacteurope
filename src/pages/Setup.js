@@ -4,6 +4,7 @@ import { Button } from "@progress/kendo-react-buttons";
 import { categories } from "../constant/categories";
 import getAlphabet from "../utils/alphabet";
 import { removeItem } from "../utils/array";
+import Container from "../components/Container";
 
 export default function Setup() {
   const [maxTime, setMaxTime] = useState(3);
@@ -26,7 +27,7 @@ export default function Setup() {
   }
 
   return (
-    <div>
+    <Container style={{ textAlign: "center" }}>
       <form onSubmit={handleSubmit} className={"k-form"}>
         <div>
           {categories.map((category) => (
@@ -40,6 +41,7 @@ export default function Setup() {
             </Button>
           ))}
         </div>
+
         <div>
           <Slider
             value={maxTime}
@@ -78,6 +80,6 @@ export default function Setup() {
           Submit
         </button>
       </form>
-    </div>
+    </Container>
   );
 }
