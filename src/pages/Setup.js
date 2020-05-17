@@ -6,6 +6,7 @@ import SelectCategory from "../components/SelectCategory";
 import SelectTime from "../components/SelectTime";
 import SelectLetter from "../components/SelectLetter";
 import { Button } from "@progress/kendo-react-buttons";
+import Link from "../components/Link";
 
 export default function Setup() {
   function handleSubmit(event) {
@@ -32,6 +33,9 @@ export default function Setup() {
         <Button type="submit" className="k-button" primary>
           PLAY !
         </Button>
+        <Link to="/">
+          <Button type="button">Return home</Button>
+        </Link>
       </form>
     </Container>
   );
