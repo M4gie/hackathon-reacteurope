@@ -13,8 +13,6 @@ function getAnswersStats(answers, categories) {
     totalCategories === 0
       ? 0
       : (totalCategories - totalAnswers) / totalCategories;
-  console.log("totalAnswers: ", totalAnswers, " categories: ", totalCategories);
-
   return [
     { kind: "Answered", share: Answered },
     { kind: "Missing", share: Missing },

@@ -3,7 +3,8 @@ import { useRecoilValue } from "recoil";
 import { answersState } from "../recoil/answers";
 
 function getScore(answers) {
-  const score = answers.reduce(function (acc, current) {
+  const allowedAnswers = answers.filter(({ text }) => text && text.length > 1);
+  const score = allowedAnswers.reduce(function (acc, current) {
     return acc + current.text.length;
   }, 0);
   return score;
