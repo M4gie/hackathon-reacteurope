@@ -3,10 +3,10 @@ import { useRecoilValue } from "recoil";
 import Donut from "./Donut";
 import { answersState } from "../recoil/answers";
 import { categoriesState } from "../recoil/categories";
+import ColumnChart from "./ColumnChart";
 
-function getAnswersStats(answers, categories) {
-  const allowedAnswers = answers.filter(({ text }) => text && text.length > 1);
-  const totalAnswers = allowedAnswers.length;
+function getAnsweredStats(answers, categories) {
+  const totalAnswers = answers.length;
   const totalCategories = categories.length;
   const Answered = totalCategories === 0 ? 0 : totalAnswers / totalCategories;
   const Missing =
@@ -19,9 +19,32 @@ function getAnswersStats(answers, categories) {
   ];
 }
 
+function getAnswersScore(answers) {
+  const answerLengthData = answers.map((answer) => ({
+    name: answer.category,
+    data: [answer.text.length],
+  }));
+  return answerLengthData;
+}
+
+function getAnswersStats(answers, categories) {
+  const allowedAnswers = answers.filter(({ text }) => text && text.length > 1);
+  const answeredStats = getAnsweredStats(allowedAnswers, categories);
+  const answersScore = getAnswersScore(allowedAnswers);
+  return { answeredStats, answersScore };
+}
+
 export default function AnswersStats() {
   const answers = useRecoilValue(answersState);
   const categories = useRecoilValue(categoriesState);
-  const answersStatsData = getAnswersStats(answers, categories);
-  return <Donut data={answersStatsData} />;
+  const answersData = getAnswersStats(answers, categories);
+  return (
+    <>
+      <Donut data={answersData.answeredStats} />
+      <ColumnChart
+        categories={["Categories"]}
+        data={answersData.answersScore}
+      />
+    </>
+  );
 }
