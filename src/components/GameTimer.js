@@ -1,12 +1,14 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import Link from "../components/Link";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Button } from "@progress/kendo-react-buttons";
 import Timer from "react-compound-timer";
+import Link from "../components/Link";
 import { maxTimeState } from "../recoil/maxTime";
+import { remainingTimeState } from "../recoil/remainingTime";
 
 export default function GameTimer({ onTimerEnd }) {
   const maxTime = useRecoilValue(maxTimeState);
+  const setRemainingTime = useSetRecoilState(remainingTimeState);
 
   return (
     <Timer
@@ -16,7 +18,7 @@ export default function GameTimer({ onTimerEnd }) {
       checkpoints={[
         {
           time: 0,
-          callback: () => onTimerEnd(0),
+          callback: onTimerEnd,
         },
       ]}
     >
@@ -34,7 +36,8 @@ export default function GameTimer({ onTimerEnd }) {
             primary
             onClick={() => {
               stop();
-              onTimerEnd(getTime());
+              setRemainingTime(getTime());
+              onTimerEnd();
             }}
           >
             Finished !

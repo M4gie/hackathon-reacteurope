@@ -10,8 +10,7 @@ export default function Game() {
   let history = useHistory();
   const gameCategories = useRecoilValue(categoriesState);
 
-  function handleEndGame(remainingTime) {
-    console.log("remaining time: ", remainingTime);
+  function handleEndGame() {
     history.push("/stats");
   }
 
