@@ -7,14 +7,14 @@ import { Button } from "@progress/kendo-react-buttons";
 import { Input } from "@progress/kendo-react-inputs";
 import Timer from "react-compound-timer";
 import { gameLetterState } from "../recoil/letter";
-import { convertedMaxTimeState } from "../recoil/maxTime";
+/* import { convertedMaxTimeState } from "../recoil/maxTime"; */
 import { useHistory } from "react-router-dom";
 
 export default function Game() {
   let history = useHistory();
   const gameCategories = useRecoilValue(categoriesState);
   const gameLetter = useRecoilValue(gameLetterState);
-  const convertedMaxTime = useRecoilValue(convertedMaxTimeState);
+  const convertedMaxTime = 5000; /* useRecoilValue(convertedMaxTimeState) */
 
   function handleEndGame(remainingTime) {
     console.log("remaining time: ", remainingTime);
