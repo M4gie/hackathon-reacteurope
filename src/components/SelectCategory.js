@@ -9,7 +9,7 @@ export default function SelectCategory(props) {
   const [gameCategories, setGameCategories] = useRecoilState(categoriesState);
 
   function handleCategory(category) {
-    if (gameCategories.includes(category)) {
+    if (gameCategories.includes(category) && gameCategories.length > 1) {
       const index = gameCategories.findIndex(
         (listItem) => listItem === category
       );
