@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Container from "../components/Container";
 import { useRecoilValue, useResetRecoilState } from "recoil";
-import { categoriesState } from "../recoil/categories";
 import { useHistory } from "react-router-dom";
 import Answer from "../components/Answer";
 import GameTimer from "../components/GameTimer";
 import { answersState } from "../recoil/answers";
+import { categoriesState } from "../recoil/categories";
+import Container from "../components/Container";
 
 export default function Game() {
   let history = useHistory();

@@ -1,6 +1,7 @@
 import React from "react";
 import { Input } from "@progress/kendo-react-inputs";
 import { useRecoilValue, useRecoilState } from "recoil";
+import styled from "styled-components";
 import { gameLetterState } from "../recoil/letter";
 import { answersState } from "../recoil/answers";
 import { replaceItemAtIndex } from "../utils/array";
@@ -27,7 +28,7 @@ export default function Answer(props) {
 
   return (
     <p>
-      <Input
+      <StyledInput
         label={category}
         value={inputIndex !== -1 ? answers[inputIndex].text : gameLetter}
         onChange={({ target: { value } }) => handleInput(value)}
@@ -35,3 +36,7 @@ export default function Answer(props) {
     </p>
   );
 }
+
+const StyledInput = styled(Input)`
+  font-size: 1.2em;
+`;

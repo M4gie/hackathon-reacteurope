@@ -1,10 +1,12 @@
 import React from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { Button } from "@progress/kendo-react-buttons";
 import Timer from "react-compound-timer";
 import Link from "../components/Link";
+import Button from "../components/Button";
 import { maxTimeState } from "../recoil/maxTime";
 import { remainingTimeState } from "../recoil/remainingTime";
+import Title from "./Title";
+import styled from "styled-components";
 
 export default function GameTimer({ onTimerEnd }) {
   const maxTime = useRecoilValue(maxTimeState);
@@ -24,16 +26,19 @@ export default function GameTimer({ onTimerEnd }) {
     >
       {({ getTime, stop }) => (
         <>
-          <div>
+          <Title>
             <Timer.Minutes />:
             <Timer.Seconds />
-          </div>
+          </Title>
           <Link to="/">
-            <Button type="button">Return home</Button>
+            <Button type="button" margin>
+              Return home
+            </Button>
           </Link>
           <Button
             type="button"
             primary
+            margin
             onClick={() => {
               stop();
               setRemainingTime(getTime());
