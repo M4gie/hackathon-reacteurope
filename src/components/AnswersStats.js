@@ -40,10 +40,11 @@ export default function AnswersStats() {
   const answersData = getAnswersStats(answers, categories);
   return (
     <>
-      <Donut data={answersData.answeredStats} />
+      <Donut data={answersData.answeredStats} title="Answers stats :" />
       <ColumnChart
         categories={["Categories"]}
         data={answersData.answersScore}
+        title="Score details :"
       />
     </>
   );

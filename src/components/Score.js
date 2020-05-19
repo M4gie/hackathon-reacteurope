@@ -1,6 +1,7 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { answersState } from "../recoil/answers";
+import Title from "./Title";
 
 function getScore(answers) {
   const allowedAnswers = answers.filter(({ text }) => text && text.length > 1);
@@ -14,5 +15,5 @@ export default function Score() {
   const answers = useRecoilValue(answersState);
   const score = getScore(answers);
 
-  return <h1>Your score: {score}</h1>;
+  return <Title>Your score: {score}</Title>;
 }

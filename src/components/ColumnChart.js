@@ -9,10 +9,10 @@ import {
   ChartLegend,
 } from "@progress/kendo-react-charts";
 
-export default function ColumnChart({ data, categories }) {
+export default function ColumnChart({ data, categories, title }) {
   return (
     <Chart style={{ height: 350 }}>
-      <ChartTitle text="Score details" />
+      <ChartTitle text={title} />
       <ChartLegend position="top" orientation="horizontal" />
       <ChartCategoryAxis>
         <ChartCategoryAxisItem categories={categories} startAngle={45} />

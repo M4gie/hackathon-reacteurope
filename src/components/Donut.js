@@ -6,6 +6,7 @@ import {
   ChartTooltip,
   ChartSeriesItem,
   ChartSeriesLabels,
+  ChartTitle,
 } from "@progress/kendo-react-charts";
 
 const labelContent = (e) => e.category;
@@ -15,9 +16,10 @@ const renderTooltip = (context) => {
   return <div>{Math.round(value * 100)}%</div>;
 };
 
-export default function Donut({ data }) {
+export default function Donut({ data, title }) {
   return (
     <Chart>
+      <ChartTitle text={title} />
       <ChartSeries>
         <ChartSeriesItem
           type="donut"

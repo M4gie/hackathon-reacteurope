@@ -17,5 +17,5 @@ export default function TimeStats() {
   const remainingTime = useRecoilValue(remainingTimeState) / 60000;
   const maxTime = useRecoilValue(maxTimeState);
   const timeStatsData = getTimeStats(maxTime, remainingTime);
-  return <Donut data={timeStatsData} />;
+  return <Donut data={timeStatsData} title="Time stats :" />;
 }
