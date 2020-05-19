@@ -1,8 +1,9 @@
 import React from "react";
-import { Button } from "@progress/kendo-react-buttons";
 import { useRecoilState } from "recoil";
+import styled from "styled-components";
 import { categoriesState } from "../recoil/categories";
 import { removeItem } from "../utils/array";
+import Button from "./Button";
 
 export default function SelectCategory(props) {
   const { category } = props;
@@ -21,14 +22,21 @@ export default function SelectCategory(props) {
   }
 
   return (
-    <Button
+    <CategoryButton
+      small
       type="button"
-      key={category}
       primary={gameCategories.includes(category)}
       onClick={() => handleCategory(category)}
       {...props}
     >
       {category}
-    </Button>
+    </CategoryButton>
   );
 }
+
+const CategoryButton = styled(Button)`
+  margin-right: 6px;
+  margin-left: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+`;

@@ -1,13 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 import { categories } from "../constant/categories";
 import getAlphabet from "../utils/alphabet";
 import Container from "../components/Container";
 import SelectCategory from "../components/SelectCategory";
 import SelectTime from "../components/SelectTime";
 import SelectLetter from "../components/SelectLetter";
-import { Button } from "@progress/kendo-react-buttons";
 import Link from "../components/Link";
-import { useHistory } from "react-router-dom";
+import Button from "../components/Button";
 
 export default function Setup() {
   let history = useHistory();
@@ -18,28 +19,39 @@ export default function Setup() {
   }
 
   return (
-    <Container style={{ textAlign: "center" }}>
+    <Container>
       <form onSubmit={handleSubmit} className={"k-form"}>
-        <div>
+        <SetupSection>
+          <h2>Choose your categories :</h2>
           {categories.map((category) => (
             <SelectCategory key={category} category={category} />
           ))}
-        </div>
-        <div>
+        </SetupSection>
+        <SetupSection>
+          <h2>Game duration :</h2>
           <SelectTime />
-        </div>
-        <div>
+        </SetupSection>
+        <SetupSection>
+          <h2>Choose the game letter :</h2>
           {getAlphabet().map((letter) => (
             <SelectLetter key={letter} letter={letter} />
           ))}
-        </div>
-        <Button type="submit" primary>
-          PLAY !
-        </Button>
-        <Link to="/">
-          <Button type="button">Return home</Button>
-        </Link>
+        </SetupSection>
+        <SetupSection>
+          <Link to="/">
+            <Button type="button" margin>
+              Return home
+            </Button>
+          </Link>
+          <Button type="submit" primary margin>
+            PLAY !
+          </Button>
+        </SetupSection>
       </form>
     </Container>
   );
 }
+
+const SetupSection = styled.section`
+  padding: 10px;
+`;

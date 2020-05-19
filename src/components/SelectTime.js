@@ -23,7 +23,7 @@ export default function SelectTime() {
             setMaxTime(time);
           }}
         >
-          {time}
+          {time} min
         </SliderLabel>
       ))}
     </Slider>
