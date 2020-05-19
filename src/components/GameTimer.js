@@ -6,7 +6,6 @@ import Button from "../components/Button";
 import { maxTimeState } from "../recoil/maxTime";
 import { remainingTimeState } from "../recoil/remainingTime";
 import Title from "./Title";
-import styled from "styled-components";
 
 export default function GameTimer({ onTimerEnd }) {
   const maxTime = useRecoilValue(maxTimeState);
