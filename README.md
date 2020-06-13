@@ -1,3 +1,14 @@
-Tiny game for the ReactEurope hackathon, using Kendo UI, Recoil and other cool libraries.
+# Find the Word
 
-You can try it here: https://m4gie-hackathon.netlify.app/
+Find the Word is tiny game made for the ReactEurope hackathon.
+
+This project use KendoUI, Recoil, StyledComponents and other cool libraries.
+
+You can try this game [here](https://m4gie-hackathon.netlify.app/)
+
+## Installation
+
+```bash
+yarn install
+yarn start
+```
