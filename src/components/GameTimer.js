@@ -3,17 +3,17 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import Timer from "react-compound-timer";
 import Link from "../components/Link";
 import Button from "../components/Button";
-import { maxTimeState } from "../recoil/maxTime";
+import { convertedMaxTimeState } from "../recoil/maxTime";
 import { remainingTimeState } from "../recoil/remainingTime";
 import Title from "./Title";
 
 export default function GameTimer({ onTimerEnd }) {
-  const maxTime = useRecoilValue(maxTimeState);
+  const maxTime = useRecoilValue(convertedMaxTimeState);
   const setRemainingTime = useSetRecoilState(remainingTimeState);
 
   return (
     <Timer
-      initialTime={maxTime * 60000}
+      initialTime={maxTime}
       direction="backward"
       formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
       checkpoints={[

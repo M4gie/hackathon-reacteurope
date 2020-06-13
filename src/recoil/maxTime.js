@@ -5,11 +5,6 @@ export const maxTimeState = atom({
   default: 3,
 });
 
-/* 
-  Need to wait this pull request to use convertedMaxTimeState
-  https://github.com/facebookexperimental/Recoil/pull/69
-*/
-
 export const convertedMaxTimeState = selector({
   key: "convertedMaxTimeState",
   get: ({ get }) => {
