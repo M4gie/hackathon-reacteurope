@@ -6,11 +6,6 @@ export const remainingTimeState = atom({
   default: 0,
 });
 
-/* 
-  Need to wait this pull request to use timeStatsState
-  https://github.com/facebookexperimental/Recoil/pull/69
-*/
-
 export const timeStatsState = selector({
   key: "timeStatsState",
   get: ({ get }) => {
